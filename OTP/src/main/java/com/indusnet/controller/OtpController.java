@@ -14,7 +14,6 @@ import com.indusnet.dto.OtpResponseMessage;
 import com.indusnet.dto.RequestUserModel;
 import com.indusnet.service.IOtpService;
 import com.indusnet.util.ResponeUtil;
-
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -28,11 +27,6 @@ public class OtpController {
 	@Autowired
 	ResponeUtil responseUtil;
 
-	/*
-	 * This Api generate take RequestUserModel
-	 * and generate time based otp.
-	 * return otp with response OtpResponseMessage
-	 */
 	/**
 	 * 
 	 * @param user: This is user store the name , email , and mobile number
@@ -46,10 +40,7 @@ public class OtpController {
 		return ResponseEntity.ok().body(responce);
 	}
 
-	/*
-	 * This Api validate otp
-	 * and return success response OtpResponseMessage
-	 */
+	
 	/**
 	 * 
 	 * @param otp : otp is 6 digit string and its validate the user 
@@ -61,13 +52,7 @@ public class OtpController {
 		return ResponseEntity.ok().body(responseUtil.response(message, otp));
 	}
 
-	/*
-	 * This Api resend request for otp generate and 
-	 * this api use previous RequestUserModel data which call 
-	 * in last time of generateOtpHandler api.
-	 * and generate time based otp.
-	 * return otp with response OtpResponseMessage
-	 */
+	
 	/**
 	 * This Api resend the otp maximum 3 times.
 	 * @return : its return success responce then otp generate succesfully 
@@ -79,9 +64,6 @@ public class OtpController {
 		return ResponseEntity.ok().body(responce);
 	}
  
-	/*
-	 * This is constructor to initialize the userService and responseUtil
-	 */
 	/**
 	 * 
 	 * @param userService :It is service layer and hold all service method.
